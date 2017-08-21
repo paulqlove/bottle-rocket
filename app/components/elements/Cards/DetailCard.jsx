@@ -19,6 +19,7 @@ const MapWrapper = styled.div`
 class DetailCard extends React.Component {
   constructor(props) {
     super(props);
+    console.log('DETAIL CARD PROPS', props);
   };
   render() {
     const { name } = this.props.details;

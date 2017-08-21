@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
       this.state = {
-        restaurants: []
+        restaurants: [],
+        show: false
     }
   };
 
@@ -25,11 +26,22 @@ class App extends React.Component {
           console.log('there was an error' + err);
       });
     };
-
+    toggleDetail(props, changeShow) {
+      return (
+        <div onClick={(e) => this.changeShow(e)}>
+          <Header showDetail={this.state.show}/>
+        </div>
+      )
+    }
+    changeShow() {
+      this.setState({
+        show: false
+      })
+    }
   render() {
     return (
      <div style={{textAlign: 'center'}}>
-       <Header />
+        { this.toggleDetail() }
         <RestaurantList places={this.state.restaurants}/>
       </div>
     );

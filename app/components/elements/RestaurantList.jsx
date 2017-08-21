@@ -33,7 +33,7 @@ class RestaurantList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.show ? <DetailCard  details={this.state.detailInfo}/> : '' }
+        {this.state.show ? <DetailCard show={this.state.show} details={this.state.detailInfo}/> : '' }
         { this.restCards() }
       </div>
     )
