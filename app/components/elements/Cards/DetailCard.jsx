@@ -27,9 +27,9 @@ class DetailCard extends React.Component {
 
     return (
       <Col lg={8}>
-        <MapWrapper>
-          <Map />
-        </MapWrapper>
+        <Row>
+          <Map location={this.props.details.location}/>
+        </Row>
         <Row>
           <Detail>
             <p>{name}</p>
