@@ -8,6 +8,37 @@ body {
 div  {
   padding: 0px !important;
 }
+
+.category {
+  bottom: 0px;
+}
+.detail-cat {
+  bottom: 0px;
+}
+.detail-cat,
+.detail-name {
+  color: #fff;
+  display: table-cell;
+  padding-left: 4.5%;
+  text-align: left;
+  position: absolute;
+}
+.detail-name {
+  bottom: 15px;
+}
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+.name, .category {
+  display: table-cell;
+  padding-left: 20px;
+  text-align: left;
+  position: absolute;
+}
+.name {
+  bottom: 25px;
+}
+
 #root {
     width: 100%;
 }

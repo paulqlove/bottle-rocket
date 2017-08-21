@@ -8,22 +8,31 @@ var address;
 
 const Detail = styled.div`
   font-family: Nunito;
-  height: 180px;
-  border: 2px solid;
+  height: 100px;
+  width: 100vw;
   color: #000;
   background-color: #43e895;
+  position: relative;
+  bottom: 30px;
 `;
 const MapWrapper = styled.div`
  height: 300px;
 `;
+
 class DetailCard extends React.Component {
   constructor(props) {
     super(props);
     console.log('DETAIL CARD PROPS', props);
   };
+  formatAddress() {
+    console.log('will work');
+    return (
+      <p>see</p>
+    );
+  }
   render() {
-    const { name } = this.props.details;
-    address = this.props.details.location ? this.props.details.location.formattedAddress : '';
+    const { name, category} = this.props.details;
+    address = this.props.details.location ? this.props.details.location.address : '';
     phone = this.props.details.contact ? this.props.details.contact.formattedPhone : ' ' ;
 
     return (
@@ -33,10 +42,18 @@ class DetailCard extends React.Component {
         </Row>
         <Row>
           <Detail>
-            <p>{name}</p>
+            <Row>
+              <h1  className="detail-name">{name}</h1>
+            </Row>
+            <Row>
+              <h5 className="detail-cat">{category}</h5>
+            </Row>
           </Detail>
         </Row>
         <Row>
+          <div>
+            {this.formatAddress()}
+          </div>
           <h3>{address}</h3>
           <h5>{phone}</h5>
         </Row>

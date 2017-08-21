@@ -30,10 +30,10 @@ class RestaurantCard extends React.Component {
       <Col lg={4}>
         <RestCard bImage={backgroundImageURL} >
           <Row>
-            <h1 value={name}>{name}</h1>
+            <h1 className="name" value={name}>{name}</h1>
           </Row>
           <Row>
-            <h5>{category}</h5>
+            <h5 className="category">{category}</h5>
           </Row>
         </RestCard>
       </Col>
