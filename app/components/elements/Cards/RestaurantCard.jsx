@@ -19,7 +19,6 @@ class RestaurantCard extends React.Component {
   }
 
   showDetails() {
-    const target  = event.target;
     this.setState({
       detailInfo: this.props.place
     })

@@ -3,21 +3,12 @@ import RestaurantCard from './Cards/RestaurantCard.jsx';
 import { string } from 'prop-types';
 import DetailCard  from "./Cards/DetailCard.jsx";
 
-let p;
-let pName;
-let contact;
-let pLocal;
-let category;
-let pImage;
 
 class RestaurantList extends React.Component {
   constructor(props) {
       super(props);
       this.doSomething = this.doSomething.bind(this);
       this.state = {
-        name: name,
-        contact: {},
-        location: {},
         detailInfo: {},
         show: false
       };

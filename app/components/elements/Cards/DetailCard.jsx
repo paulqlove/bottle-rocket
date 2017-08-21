@@ -5,7 +5,7 @@ import { css } from './index.css';
 import { Map } from './../index.jsx';
 var phone;
 var address;
-// var social;
+
 const Detail = styled.div`
   font-family: Nunito;
   height: 180px;
