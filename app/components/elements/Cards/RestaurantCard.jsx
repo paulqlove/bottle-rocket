@@ -8,7 +8,7 @@ const RestCard = styled.div`
   font-family: Nunito;
   color: #fff;
   height: 180px;
-  border: 2px solid;
+  border: 1px solid;
   background: url(${state => state.bImage}) center / cover no-repeat;
 `;
 
@@ -27,8 +27,8 @@ class RestaurantCard extends React.Component {
   displayCard() {
     const { name, backgroundImageURL, category } = this.props.place;
     return (
-      <Col lg={4}>
-        <RestCard bImage={backgroundImageURL} >
+      <Col className='clear-pad' lg={4}>
+        <RestCard className="overlay grey" bImage={backgroundImageURL} >
           <Row>
             <h1 className="name" value={name}>{name}</h1>
           </Row>

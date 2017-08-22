@@ -9,7 +9,6 @@ var address;
 const Detail = styled.div`
   font-family: Nunito;
   height: 100px;
-  width: 100vw;
   color: #000;
   background-color: #43e895;
   position: relative;
@@ -24,14 +23,29 @@ class DetailCard extends React.Component {
     super(props);
     console.log('DETAIL CARD PROPS', props);
   };
-  formatAddress() {
-    console.log('will work');
+  formatAddress(addressArray,phone) {
+    console.log('will work', addressArray);
+    // <Row>
+    //   <p>{phone}</p>
+    // </Row>
     return (
-      <p>see</p>
+      <div className="detail-address">
+        <Row>
+          <Col md={12}>{addressArray.address}</Col>
+        </Row>
+        <Row>
+          <Col md={12}><p>{addressArray.city}, {addressArray.state} {addressArray.postalCode}</p></Col>
+        </Row>
+        <Row>
+          <Col md={12}>{phone}</Col>
+        </Row>
+      </div >
+
     );
   }
   render() {
     const { name, category} = this.props.details;
+  var addressArray = this.props.details.location ? this.props.details.location : '';
     address = this.props.details.location ? this.props.details.location.address : '';
     phone = this.props.details.contact ? this.props.details.contact.formattedPhone : ' ' ;
 
@@ -43,19 +57,19 @@ class DetailCard extends React.Component {
         <Row>
           <Detail>
             <Row>
-              <h1  className="detail-name">{name}</h1>
+              <Col md={12}>
+                <h1  className="detail-name">{name}</h1>
+              </Col>
             </Row>
-            <Row>
-              <h5 className="detail-cat">{category}</h5>
+              <Row>
+              <Col md={12}>
+                <h5 className="detail-cat">{category}</h5>
+              </Col>
             </Row>
           </Detail>
         </Row>
         <Row>
-          <div>
-            {this.formatAddress()}
-          </div>
-          <h3>{address}</h3>
-          <h5>{phone}</h5>
+            {this.formatAddress(addressArray,phone)}
         </Row>
       </Col>
     )
