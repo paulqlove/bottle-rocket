@@ -1,14 +1,9 @@
 import {combineReducers } from "redux";
+import { items, itemsHasErrored, itemsIsLoading } from "./items.jsx";
 
-const rootReducer = combineReducers({
-    test: (state = "Nothing has happened yet", action) => {
-        switch (action.type) {
-        case "TEST":
-            return "It happened!";
-        default:
-            return state;
-        }
-    }
+
+export default combineReducers({
+    items,
+    itemsHasErrored,
+    itemsIsLoading
 });
-
-export default rootReducer;

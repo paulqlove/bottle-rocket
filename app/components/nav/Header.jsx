@@ -33,16 +33,21 @@ const MapButton = styled.button`
 class ButtonBack extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      show: false
+    }
 
   }
-
+  componentWilllUpdate(){
+    console.log("Back button ");
+  }
   render() {
 
+    // {(this.props.showDetail) ? <Col lg={1}><BackButton  /> </Col> : '' }
     return (
       <Wrapper>
         <Row>
-          <Col lg={1}><BackButton /> </Col>
-
+            <Col lg={1}><BackButton show={this.state.show} /> </Col>
           <Col lg={10}>
             <header className="top">
               <h1>Lunch Tyme</h1>

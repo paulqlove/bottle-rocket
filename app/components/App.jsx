@@ -1,50 +1,62 @@
 import React from 'react';
 import Header from './nav/Header.jsx';
+import { bindActionCreators } from "redux";
 import { RestaurantCard, RestaurantList, Map } from './elements/index.jsx';
+import { connect } from 'react-redux';
+import { itemsFetchData } from './actions/index.jsx';
+
 
 
 class App extends React.Component {
 
-  constructor() {
-    super();
-      this.state = {
-        restaurants: [],
-        show: false
-    }
-  };
+  // constructor() {
+  //   super();
+  //     this.state = {
+  //       show: false
+  //   }
+  // };
 
   componentDidMount() {
       const url = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
-      fetch(url)
-        .then((resp) => resp.json())
-        .then((data) => {
-           this.setState({
-              restaurants: data.restaurants
-            });
-        })
-        .catch(function(err) {
-          console.log('there was an error' + err);
-      });
+      this.props.fetchData(url)
     };
-    toggleDetail(props, changeShow) {
-      return (
-        <div onClick={(e) => this.changeShow(e)}>
-          <Header showDetail={this.state.show}/>
-        </div>
-      )
-    }
-    changeShow() {
-      this.setState({
-        show: false
-      })
-    }
+    // toggleDetail(props, changeShow) {
+    //   // <div onClick={(e) => this.changeShow(e)}>
+    //   // </div>
+    //   return (
+    //       <Header/>
+    //   )
+    // }
+    // changeShow() {
+    //   this.setState({
+    //     show: false
+    //   })
+    // }
   render() {
+    // console.log('app js', this.props);
+    // { this.toggleDetail() }
     return (
      <div style={{textAlign: 'center'}}>
-        { this.toggleDetail() }
-        <RestaurantList places={this.state.restaurants}/>
+        <Header/>
+        <RestaurantList data={this.props.items}/>
       </div>
     );
   }
 }
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        items: state.items,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.itemsIsLoading
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(itemsFetchData(url))
+    };
+};
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

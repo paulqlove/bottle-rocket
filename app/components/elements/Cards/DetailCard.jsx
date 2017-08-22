@@ -21,13 +21,11 @@ const MapWrapper = styled.div`
 class DetailCard extends React.Component {
   constructor(props) {
     super(props);
-    console.log('DETAIL CARD PROPS', props);
+    console.log('DETAIL CARD PROPS', this.props);
   };
   formatAddress(addressArray,phone) {
     console.log('will work', addressArray);
-    // <Row>
-    //   <p>{phone}</p>
-    // </Row>
+
     return (
       <div className="detail-address">
         <Row>
@@ -58,12 +56,12 @@ class DetailCard extends React.Component {
           <Detail>
             <Row>
               <Col md={12}>
-                <h1  className="detail-name">{name}</h1>
+                <h1  className="detail-name">'{name}'</h1>
               </Col>
             </Row>
               <Row>
               <Col md={12}>
-                <h5 className="detail-cat">{category}</h5>
+                <h5 className="detail-cat">'{category}'</h5>
               </Col>
             </Row>
           </Detail>
