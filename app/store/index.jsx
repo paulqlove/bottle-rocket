@@ -1,14 +1,13 @@
 import thunk from "redux-thunk";
 import { applyMiddleware, createStore } from "redux";
-import { createLogger } from "redux-logger";
+import { itemsFetchData } from '../components/actions/index.jsx';
+import combineReducers from "../reducers/index.jsx";
+import configureStore from './configureStore.jsx'
 
-import rootReducer from "../reducers/index.jsx";
 
-const logger = createLogger();
-
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk, logger)
-);
+const defaultState = {
+  items: (url) => dispatch(itemsFetchData(url))
+}
+const store = configureStore();
 
 export default store;

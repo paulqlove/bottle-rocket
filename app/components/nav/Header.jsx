@@ -33,9 +33,9 @@ const MapButton = styled.button`
 class ButtonBack extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      show: false
-    }
+    // this.state = {
+    //   show: false
+    // }
 
   }
   componentWilllUpdate(){
@@ -47,7 +47,7 @@ class ButtonBack extends React.Component {
     return (
       <Wrapper>
         <Row>
-            <Col lg={1}><BackButton show={this.state.show} /> </Col>
+            <Col lg={1}><BackButton show={true} /> </Col>
           <Col lg={10}>
             <header className="top">
               <h1>Lunch Tyme</h1>

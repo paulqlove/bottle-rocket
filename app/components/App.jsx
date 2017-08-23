@@ -16,7 +16,7 @@ class App extends React.Component {
   //   }
   // };
 
-  componentDidMount() {
+  componentWillMount() {
       const url = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
       this.props.fetchData(url)
     };
@@ -38,14 +38,14 @@ class App extends React.Component {
     return (
      <div style={{textAlign: 'center'}}>
         <Header/>
-        <RestaurantList data={this.props.items}/>
+          <RestaurantList places={this.props.places}/>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
+        places: state.items.restaurants,
         hasErrored: state.itemsHasErrored,
         isLoading: state.itemsIsLoading
     };

@@ -24,21 +24,21 @@ class RestaurantCard extends React.Component {
   //     detailInfo: this.props.place
   //   })
   // }
-
+  // <Col className='clear-pad' lg={4}>
+  //   <RestCard className="overlay grey" bImage={backgroundImageURL} >
+  //     <Row>
+  //       <h1 className="name" value={name}>{name}</h1>
+  //     </Row>
+  //     <Row>
+  //       <h5 className="category">{category}</h5>
+  //     </Row>
+  //   </RestCard>
+  // </Col>
   displayCard() {
     console.log('card', this.props);
-    const { name, backgroundImageURL, category } = this.props.place;
+    // const { name, backgroundImageURL, category } = this.props.places;
     return (
-      <Col className='clear-pad' lg={4}>
-        <RestCard className="overlay grey" bImage={backgroundImageURL} >
-          <Row>
-            <h1 className="name" value={name}>{name}</h1>
-          </Row>
-          <Row>
-            <h5 className="category">{category}</h5>
-          </Row>
-        </RestCard>
-      </Col>
+    <div><p>what the </p></div>
     );
   }
 
@@ -50,8 +50,14 @@ class RestaurantCard extends React.Component {
     )
   }
 };
-
+const mapStateToProps = (state) => {
+    return {
+        places: state.items.restaurants,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.itemsIsLoading
+    };
+};
 // RestaurantCard.propTypes = {
 //   pImage: string
 // }
-export default connect()(RestaurantCard);
+export default connect(mapStateToProps)(RestaurantCard);

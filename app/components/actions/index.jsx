@@ -20,7 +20,6 @@ export function itemsFetchDataSuccess(items) {
 }
 
 export function itemsFetchData(url){
-  // const url = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
 
   return (dispatch) => {
         dispatch(itemsIsLoading(true));
@@ -40,18 +39,3 @@ export function itemsFetchData(url){
         .catch(() => dispatch(itemsHasErrored(true)));
       };
 }
-// return (dispatch) => {
-//       dispatch(itemsIsLoading(true));
-//
-//       fetch(url)
-//             .then((resp) => resp.json())
-//             .then((data) => {
-//                this.setStaturle({
-//                   restaurants: data.restaurants
-//                 });
-//             })
-//             .catch(function(err) {
-//               console.log('there was an error' + err);
-//           });
-// }
-// }
