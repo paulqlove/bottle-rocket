@@ -9,9 +9,10 @@ import { connect } from 'react-redux'
 class RestaurantList extends React.Component {
   constructor(props) {
       super(props);
-      // this.state = {
-      //   places: props.places
-      // }
+      this.state = {
+        detailInfo: {},
+        show: false
+      }
       // this.restCards = this.restCards.bind(this);
   }
   //
@@ -26,24 +27,25 @@ class RestaurantList extends React.Component {
   //     })
   //   }
   // }
-  // doSomething(place) {
-  //   console.log('g', this.state.show)
-  //   this.setState({
-  //     detailInfo: place,
-  //     show: true
-  //   })
-  // }
+  doSomething(place) {
+    console.log('g', this.state.show)
+    this.setState({
+      detailInfo: place,
+      show: true
+    })
+  }
   render() {
-    // <DetailCard details={this.state}/>
 
     // var maybe = this.restCards(props);
     const places = this.props.places;
-    // {this.state.show ? <DetailCard show={this.state} details={this.state}/> : '' }
 
-    // { this.restCards() }
+    // <DetailCard details={this.state}/>
     return (
       <div>
-        { places ? places.map((place,i) => <RestaurantCard data={place} key={i} i={i} place={place}/>) : <p>loading</p>}
+        {this.state.show ? <DetailCard show={this.state.show} details={this.state.detailInfo}/> : '' }
+
+          { places ? places.map((place,i) =><div onClick={(e) => this.doSomething(place)}> <RestaurantCard data={place} key={i} i={i} place={place}/></div>) : <p>loading</p>}
+
       </div>
     )
   }

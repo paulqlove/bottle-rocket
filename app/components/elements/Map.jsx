@@ -6,13 +6,13 @@ import { css } from './index.css';
 export default class Map extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   viewport: {
-    //     latitude: this.props.location.lat,
-    //     longitude: this.props.location.lng,
-    //     zoom: 12
-    //   }
-    // }
+    this.state = {
+      viewport: {
+        latitude: this.props.location.lat,
+        longitude: this.props.location.lng,
+        zoom: 12
+      }
+    }
   }
   componentWilllUpdate(props){
     console.log('get map prop', this.props.location.lat, this.props.location.lng);

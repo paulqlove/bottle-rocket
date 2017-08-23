@@ -56,12 +56,12 @@ class DetailCard extends React.Component {
           <Detail>
             <Row>
               <Col md={12}>
-                <h1  className="detail-name">'{name}'</h1>
+                <h1  className="detail-name">{name}</h1>
               </Col>
             </Row>
               <Row>
               <Col md={12}>
-                <h5 className="detail-cat">'{category}'</h5>
+                <h5 className="detail-cat">{category}</h5>
               </Col>
             </Row>
           </Detail>
