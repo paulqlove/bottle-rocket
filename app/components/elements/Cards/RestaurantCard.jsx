@@ -26,7 +26,6 @@ class RestaurantCard extends React.Component {
   // }
 
   displayCard() {
-    console.log('card', this.props);
     const { name, backgroundImageURL, category } = this.props.place;
     return (
       <Col className='clear-pad' lg={4}>
@@ -50,15 +49,16 @@ class RestaurantCard extends React.Component {
     )
   }
 };
-// const mapStateToProps = (state) => {
-//     return {
-//         places: state.items.restaurants,
-//         hasErrored: state.itemsHasErrored,
-//         isLoading: state.itemsIsLoading
-//     };
-// };
+const mapStateToProps = (state) => {
+      return {
+        showBackBtn: state.show,
+        // places: state.items.restaurants,
+        // hasErrored: state.itemsHasErrored,
+        // isLoading: state.itemsIsLoading
+    };
+};
 // RestaurantCard.propTypes = {
 //   pImage: string
 // }
-// export default connect(mapStateToProps)(RestaurantCard);
-export default RestaurantCard;
+export default connect(mapStateToProps)(RestaurantCard);
+// export default RestaurantCard;

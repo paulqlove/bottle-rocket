@@ -1,9 +1,10 @@
 import {combineReducers } from "redux";
-import { items, itemsHasErrored, itemsIsLoading } from "./items.jsx";
+import { items, itemsHasErrored, itemsIsLoading, showBackBtn } from "./items.jsx";
 
 
 export default combineReducers({
     items,
     itemsHasErrored,
-    itemsIsLoading
+    itemsIsLoading,
+    showBackBtn
 });

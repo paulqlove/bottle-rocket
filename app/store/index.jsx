@@ -7,6 +7,7 @@ import configureStore from './configureStore.jsx'
 
 const defaultState = {
   items: (url) => dispatch(itemsFetchData(url))
+
 }
 const store = configureStore();
 

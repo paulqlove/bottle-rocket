@@ -39,3 +39,12 @@ export function itemsFetchData(url){
         .catch(() => dispatch(itemsHasErrored(true)));
       };
 }
+
+export function showBackBtn(bool) {
+  console.log("aCTION FIRED ACTION FIRED", bool)
+  const action = {
+    type: 'HEADER_SHOW_BACK_BTN',
+    showBackBtn: bool
+  };
+  return action;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import { Container, Row, Col, Visible, Hidden, ScreenClassRender } from 'react-grid-system';
+import { connect } from 'react-redux';
+import { showBackBtn } from '../././actions/index.jsx';
 
 const Wrapper = styled.header`
   background-color: #43e895;
@@ -30,24 +32,40 @@ const MapButton = styled.button`
     height: 50px;
     width: 50px;
 `;
-class ButtonBack extends React.Component {
+const ButtonBack = () => {
+  return (
+    <div>
+       <BackButton />
+     </div>
+  )
+}
+class Header extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   show: false
-    // }
-
+    // this.goHome = this.goHome.bind(this);
+    this.state = {
+      show: this.props.backButton
+    }
   }
-  componentWilllUpdate(){
-    console.log("Back button ");
-  }
-  render() {
 
-    // {(this.props.showDetail) ? <Col lg={1}><BackButton  /> </Col> : '' }
+  componentWillReceiveProps(props) {
+    console.log('KADJDFLKJALDSKFJLAKSDJFLKJASDLF', this.state.show, this.props)
+    this.setState({
+      show: !this.state.show
+    })
+  }
+  goHome(props){
+    console.log("toggle state and hide map", this.props);
+    this.setState({
+      show: !this.state.show
+    })
+  }
+  render(props) {
+    const backBtn = this.state.show;
     return (
       <Wrapper>
         <Row>
-            <Col lg={1}><BackButton show={true} /> </Col>
+          <Col lg={1} onClick={(e) => this.goHome(props)}>{backBtn ? <ButtonBack/> : ''} </Col>
           <Col lg={10}>
             <header className="top">
               <h1>Lunch Tyme</h1>
@@ -58,10 +76,17 @@ class ButtonBack extends React.Component {
       </Wrapper>
     )
   }
-}
-const Header = (props) => {
-  console.log("props in head", props)
 
-  return <ButtonBack/>
 }
-export default Header;
+
+const mapStateToProps = (state) => {
+    return {
+        showBackBtn: state.show,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        backButton: (bool) => dispatch(showBackBtn(bool))
+    };
+};
+export default connect(mapStateToProps, mapStateToProps)(Header);

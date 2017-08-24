@@ -26,3 +26,13 @@ export function items(state = [], action) {
             return state;
     }
 }
+
+export function showBackBtn(state = false, action) {
+  switch(action.type) {
+    case 'HEADER_SHOW_BACK_BTN':
+      return action.showBackBtn;
+
+      default:
+        return state;
+  }
+}

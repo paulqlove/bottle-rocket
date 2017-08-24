@@ -44,8 +44,8 @@ class DetailCard extends React.Component {
   render() {
     const { name, category} = this.props.details;
   var addressArray = this.props.details.location ? this.props.details.location : '';
-    address = this.props.details.location ? this.props.details.location.address : '';
-    phone = this.props.details.contact ? this.props.details.contact.formattedPhone : ' ' ;
+      address = this.props.details.location ? this.props.details.location.address : '';
+      phone = this.props.details.contact ? this.props.details.contact.formattedPhone : ' ' ;
 
     return (
       <Col lg={8}>
