@@ -1,7 +1,6 @@
 import React from 'react';
-import Header from './nav/Header.jsx';
 import { bindActionCreators } from "redux";
-import { RestaurantCard, RestaurantList, Map } from './elements/index.jsx';
+import { RestaurantCard, RestaurantList, Map, Header } from './elements/index.jsx';
 import { connect } from 'react-redux';
 import { itemsFetchData } from './actions/index.jsx';
 
@@ -12,7 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-        show: this.props.showBackBtn
+        show: this.props.show,
+        places: this.props.places
     }
   };
 
@@ -27,25 +27,26 @@ class App extends React.Component {
     //       <Header/>
     //   )
     // }
-    // changeShow() {
-    //   this.setState({
-    //     show: false
-    //   })
-    // }
+    changeShow() {
+
+      // this.setState({
+      //   show: false
+      // })
+    }
   render() {
     // console.log('app js', this.props);
     // { this.toggleDetail() }
     return (
      <div style={{textAlign: 'center'}}>
-        <Header backButton={this.props.showBackBtn}/>
-          <RestaurantList backButton={this.props.showBackBtn} places={this.props.places}/>
+        <Header showBackBtn={this.props.show}/>
+          <RestaurantList showBackBtn={this.props.show} places={this.props.places} onChange={(e) => this.changeShow()}/>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
     return {
-        showBackBtn: state.showBackBtn,
+        show: state.showBackBtn,
         places: state.items.restaurants,
         hasErrored: state.itemsHasErrored,
         isLoading: state.itemsIsLoading

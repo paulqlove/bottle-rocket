@@ -21,10 +21,8 @@ const MapWrapper = styled.div`
 class DetailCard extends React.Component {
   constructor(props) {
     super(props);
-    console.log('DETAIL CARD PROPS', this.props);
   };
   formatAddress(addressArray,phone) {
-    console.log('will work', addressArray);
 
     return (
       <div className="detail-address">
