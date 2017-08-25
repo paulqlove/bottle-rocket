@@ -39,25 +39,41 @@ const ButtonBack = () => {
      </div>
   )
 }
+// class ButtonBack extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     // this.goHome = this.goHome.bind(this);
+//     this.state = {
+//       show: this.props.showBackBtn
+//     }
+//   }
+//   render() {
+//     return (
+//       <div>
+//          <BackButton />
+//        </div>
+//     )
+//   }
+// }
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    // this.goHome = this.goHome.bind(this);
+    this.goHome = this.goHome.bind(this);
     this.state = {
-      show: this.props.backButton
+      show: this.props.showBackBtn
     }
   }
 
   componentWillReceiveProps(props) {
-    console.log('KADJDFLKJALDSKFJLAKSDJFLKJASDLF', this.state.show, this.props)
     this.setState({
       show: !this.state.show
     })
   }
   goHome(props){
-    console.log("toggle state and hide map", this.props);
+    this.props.backButton(false);
     this.setState({
-      show: !this.state.show
+      show: true
     })
   }
   render(props) {
@@ -65,7 +81,7 @@ class Header extends React.Component {
     return (
       <Wrapper>
         <Row>
-          <Col lg={1} onClick={(e) => this.goHome(props)}>{backBtn ? <ButtonBack/> : ''} </Col>
+          <Col lg={1} onClick={(e) => this.goHome()}>{backBtn ? <ButtonBack/> : ''} </Col>
           <Col lg={10}>
             <header className="top">
               <h1>Lunch Tyme</h1>
@@ -89,4 +105,5 @@ const mapDispatchToProps = (dispatch) => {
         backButton: (bool) => dispatch(showBackBtn(bool))
     };
 };
-export default connect(mapStateToProps, mapStateToProps)(Header);
+// connect(mapStateToProps,)
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
