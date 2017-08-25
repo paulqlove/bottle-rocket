@@ -16,13 +16,13 @@ export default class Map extends Component {
   }
   componentWilllUpdate(props){
     console.log('get map prop', this.props.location.lat, this.props.location.lng);
-    this.setState = {
-      viewport: {
-        latitude: this.props.location.lat,
-        longitude: this.props.location.lng,
-        zoom: 12
-      }
-    }
+    // this.setState = {
+    //   viewport: {
+    //     latitude: this.props.location.lat,
+    //     longitude: this.props.location.lng,
+    //     zoom: 12
+    //   }
+    // }
   }
   render() {
     return (

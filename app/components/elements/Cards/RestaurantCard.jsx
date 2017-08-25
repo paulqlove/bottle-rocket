@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { string } from "prop-types";
 import { Container, Row, Col, Visible, Hidden, ScreenClassRender } from 'react-grid-system';
 import DetailCard  from "./DetailCard.jsx";
+import { connect } from 'react-redux';
 
 const RestCard = styled.div`
   font-family: Nunito;
@@ -15,14 +16,14 @@ const RestCard = styled.div`
 class RestaurantCard extends React.Component {
   constructor(props) {
     super(props);
-    this.showDetails = this.showDetails.bind(this);
+    // this.showDetails = this.showDetails.bind(this);
   }
 
-  showDetails() {
-    this.setState({
-      detailInfo: this.props.place
-    })
-  }
+  // showDetails() {
+  //   this.setState({
+  //     detailInfo: this.props.place
+  //   })
+  // }
 
   displayCard() {
     const { name, backgroundImageURL, category } = this.props.place;
@@ -48,8 +49,16 @@ class RestaurantCard extends React.Component {
     )
   }
 };
-
-RestaurantCard.propTypes = {
-  pImage: string
-}
-export default RestaurantCard;
+const mapStateToProps = (state) => {
+      return {
+        showBackBtn: state.show,
+        // places: state.items.restaurants,
+        // hasErrored: state.itemsHasErrored,
+        // isLoading: state.itemsIsLoading
+    };
+};
+// RestaurantCard.propTypes = {
+//   pImage: string
+// }
+export default connect(mapStateToProps)(RestaurantCard);
+// export default RestaurantCard;
