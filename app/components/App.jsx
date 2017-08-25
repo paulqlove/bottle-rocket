@@ -45,6 +45,8 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
+
+
     return {
         show: state.showBackBtn,
         places: state.items.restaurants,

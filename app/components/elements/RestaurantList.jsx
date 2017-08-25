@@ -32,7 +32,6 @@ this.props.backButton(true);
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.showBackBtn !== this.props.showBackBtn && (!nextProps.showBackBtn)){
-      console.log('componentWillReceiveProps', this.props.showBackBtn, nextProps.showBackBtn)
       this.setState({
         show: !this.props.showBackBtn
       })
